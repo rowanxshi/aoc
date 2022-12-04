@@ -1,12 +1,10 @@
 function readin(filepath = "0122sample.txt")
 	raw = read(filepath, String) |> chomp
-	raw = replace(raw, "\n\n" => '.')
-	raw = split(raw, '.')
 	
 	elves = NTuple[]
-	
-	for elf in raw
-		push!(elves, (parse.(Int, split(elf, "\n"))..., ))
+	for elf in eachsplit(raw, "\n\n")
+		elf = parse.(Int, (eachsplit(elf, '\n')..., ))
+		push!(elves, elf)
 	end
 	elves
 end

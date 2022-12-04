@@ -1,5 +1,5 @@
 function readin(filepath="0222sample.txt")
-	games = []
+	games = NTuple{2, Int}[]
 	for game in eachline(filepath)
 		opponent = findfirst(==(game[1]), 'A':'C')
 		self = findfirst(==(game[3]), 'X':'Z')

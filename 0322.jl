@@ -1,16 +1,12 @@
 function readin(filepath="0322sample.txt")
 	rucksacks = NTuple{2, String}[]
 	for rucksack in eachline(filepath)
-		nitems = length(rucksack)
-		push!(rucksacks, (rucksack[1:Int(nitems/2)], rucksack[Int(nitems/2 + 1):end]))
+		push!(rucksacks, (rucksack[1:Int(end/2)], rucksack[Int(end/2 + 1):end]))
 	end
 	rucksacks
 end
 
-function priorityorder()
-	priorityorder = Iterators.flatten(('a':'z', 'A':'Z'))
-	priorityorder = prod(priorityorder)
-end
+priority(x) = x - (islowercase(x) ? 'a' : 'A') + 1
 
 function priorities1(rucksacks)
 	order = priorityorder()
