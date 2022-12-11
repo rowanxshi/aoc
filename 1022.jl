@@ -1,4 +1,3 @@
-
 function signalstrength(filename="1022sample2.txt"; X0 = 1, keycycles = 20:40:220)
 	X, cycle, strength = (X0, 1, 0)
 	isinteresting = in(keycycles)
